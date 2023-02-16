@@ -55,7 +55,14 @@ const getAllProspects = async (req, res) => {
 };
 
 const getProspect = async (req, res) => {
+    const { id } = req.params;
+    const prospectExists = await Prospect.findOne({ _id: id }).populate('creator');
 
+    if(prospectExists) {
+        res.status(200).json(prospectExists);
+    } else {
+        res.status(404).json({ message: "Prospect not found" });
+    };
 };
 
 const createProspect = async (req, res) => {
@@ -101,7 +108,28 @@ const createProspect = async (req, res) => {
 };
 
 const updateProspect = async (req, res) => {};
-const deleteProspect = async (req, res) => {};
+
+const deleteProspect = async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        const prospectToDelete = await Prospect.findById({ _id: id }).populate('creator');
+
+        const session = await mongoose.startSession();
+        session.startTransaction();
+
+        prospectToDelete.remove({ session });
+        prospectToDelete.creator.allProspects.pull(prospectToDelete);
+
+        await prospectToDelete.creator.save({ session });
+        await session.commitTransaction();
+
+        res.status(200).json({ message: "Prospect deleted successfully" });
+
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
 
 export {
     getAllProspects,
