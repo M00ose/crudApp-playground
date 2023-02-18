@@ -14,30 +14,16 @@ export const validateForm = (formValues: FormValues) => {
         }
         break;
 
-      case 'note':
-        if (!formValues.note) {
-          errors.message = 'Note is required';
+      case 'stage':
+        if (!formValues.stage) {
+          errors.message = 'Stage is required';
           hasError = true;
         }
         break;
 
-      case 'programArea':
-        if (!formValues.programArea) {
-          errors.message = 'Program area is required';
-          hasError = true;
-        }
-        break;
-
-      case 'location':
-        if (!formValues.location) {
-          errors.message = 'Location is required';
-          hasError = true;
-        }
-        break;
-
-      case 'grantAmount':
-        if (!formValues.grantAmount) {
-          errors.message = 'Grant amount is required';
+        case 'priority':
+        if (!formValues.stage) {
+          errors.message = 'Priority is required';
           hasError = true;
         }
         break;

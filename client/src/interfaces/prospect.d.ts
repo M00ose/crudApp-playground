@@ -7,16 +7,28 @@ export interface FormFieldProp {
 
 export interface FormValues {
     title: string,
-    note: string,
-    programArea: string,
-    location: string,
+    summary: string,
+    program: string,
     grantAmount: number | undefined,
+    grantType: string,
+    fundingCycle: string,
+    applicationProcess: string,
+    deadline: Date,
+    location: string,
+    website: string,
+    email: string,
+    logo: string,
+    stage: string,
+    priority: string,
 }
 
 export interface ProspectCardProps {
   id?: BaseKey | undefined;
-  title: string;
-  location: string;
-  grantAmount: string;
-  photo: string;
+  title: string,
+  program: string,
+  grantAmount: number | undefined,
+  deadline: Date,
+  logo: string,
+  stage: string,
+  priority: string,
 }

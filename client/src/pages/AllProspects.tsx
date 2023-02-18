@@ -45,8 +45,8 @@ const AllProspects = () => {
             title:
                 logicalFilters.find((item) => item.field === "title")?.value ||
                 "",
-            programArea:
-                logicalFilters.find((item) => item.field === "programArea")
+            program:
+                logicalFilters.find((item) => item.field === "program")
                     ?.value || "",
         };
     }, [filters]);
@@ -109,12 +109,12 @@ const AllProspects = () => {
                                 required
                                 inputProps={{ "aria-label": "Without label" }}
                                 defaultValue=""
-                                value={currentFilterValues.programArea}
+                                value={currentFilterValues.program}
                                 onChange={(e) => {
                                     setFilters(
                                         [
                                             {
-                                                field: "programArea",
+                                                field: "program",
                                                 operator: "eq",
                                                 value: e.target.value,
                                             },
@@ -164,9 +164,12 @@ const AllProspects = () => {
                         key={prospect._id}
                         id={prospect._id}
                         title={prospect.title}
-                        location={prospect.location}
+                        program={prospect.program}
                         grantAmount={prospect.grantAmount}
-                        photo={prospect.photo}
+                        deadline={prospect.deadline}
+                        logo={prospect.logo}
+                        stage={prospect.stage}
+                        priority={prospect.priority}
                     />
                 ))}
             </Box>

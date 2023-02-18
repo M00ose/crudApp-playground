@@ -53,7 +53,7 @@ const Form = ({ type, register, handleSubmit, handleImageChange, formLoading, on
                   fontSize: 14,
                   color: "#008E87"
                 }}>
-                  Select Program Area
+                  Select Program
               </FormHelperText>
               <Select
                 variant="outlined"
@@ -62,7 +62,7 @@ const Form = ({ type, register, handleSubmit, handleImageChange, formLoading, on
                 required
                 inputProps={{ 'aria-label' : 'Without label' }}
                 defaultValue='None'
-                {...register('programArea', { required: true })}
+                {...register('program', { required: true })}
               >
                 <MenuItem value="Energy">Energy</MenuItem>
                 <MenuItem value="Impact">Impact</MenuItem>

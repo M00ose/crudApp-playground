@@ -14,9 +14,12 @@ import { ProspectCardProps } from "interfaces/prospect";
 const ProspectCard = ({
     id,
     title,
-    location,
+    program,
     grantAmount,
-    photo,
+    deadline,
+    logo,
+    stage,
+    priority,
 }: ProspectCardProps) => {
     return (
         <Card
@@ -36,7 +39,7 @@ const ProspectCard = ({
                 component="img"
                 width="100%"
                 height={100}
-                image={photo}
+                image={logo}
                 alt="card image"
                 sx={{ 
                   borderRadius: "10px", 
@@ -64,9 +67,6 @@ const ProspectCard = ({
                                 marginTop: 0.5,
                             }}
                         />
-                        <Typography fontSize={14} color="#003441">
-                            {location}
-                        </Typography>
                     </Stack>
                 </Stack>
                 <Box

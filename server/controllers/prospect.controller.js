@@ -20,13 +20,13 @@ const getAllProspects = async (req, res) => {
         _start, 
         _sort, 
         title_like = "", 
-        programArea = ""
+        program = ""
     } = req.query;
 
     const query = {};
 
-    if(programArea != ''){
-        query.programArea = programArea;
+    if(program != ''){
+        query.program = program;
     }
 
     if(title_like != ''){
@@ -69,12 +69,19 @@ const createProspect = async (req, res) => {
     try {
         const {
             title,
-            note,
-            programArea,
-            location,
+            summary,
+            program,
             grantAmount,
-            photo,
+            grantType,
+            fundingCycle,
+            applicationProcess,
+            deadline,
+            location,
+            website,
             email,
+            logo,
+            stage,
+            priority,
         } = req.body;
 
         const session = await mongoose.startSession();
@@ -84,15 +91,23 @@ const createProspect = async (req, res) => {
 
         if (!user) throw new Error("User not found");
 
-        const photoUrl = await cloudinary.uploader.upload(photo);
+        const logoUrl = await cloudinary.uploader.upload(logo);
 
         const newProspect = await Prospect.create({
             title,
-            note,
-            programArea,
-            location,
+            summary,
+            program,
             grantAmount,
-            photo: photoUrl.url,
+            grantType,
+            fundingCycle,
+            applicationProcess,
+            deadline,
+            location,
+            website,
+            email,
+            logo: logoUrl.url,
+            stage,
+            priority,
             creator: user._id,
         });
 
@@ -107,7 +122,52 @@ const createProspect = async (req, res) => {
     }
 };
 
-const updateProspect = async (req, res) => {};
+const updateProspect = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { 
+            title,
+            summary,
+            program,
+            grantAmount,
+            grantType,
+            fundingCycle,
+            applicationProcess,
+            deadline,
+            location,
+            website,
+            email,
+            logo,
+            stage,
+            priority,
+         } = req.body;
+
+        const logoUrl = await cloudinary.uploader.upload(logo);
+
+        await Prospect.findByIdAndUpdate(
+            { _id: id },
+            {
+                title,
+                summary,
+                program,
+                grantAmount,
+                grantType,
+                fundingCycle,
+                applicationProcess,
+                deadline,
+                location,
+                website,
+                email,
+                logo: logoUrl.url || logo,
+                stage,
+                priority,
+            }
+        )
+        
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
 
 const deleteProspect = async (req, res) => {
     try {
