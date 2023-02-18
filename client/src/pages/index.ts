@@ -7,17 +7,10 @@ import AllProspects from './AllProspects';
 import CreateProspect from './CreateProspect';
 import EditProspect from './EditProspect';
 
-import Tasks from './Tasks';
-
-import WritingProducts from './WritingProducts';
-import AllWritingProducts from './AllWritingProducts';
-import CreateWritingProduct from './CreateWritingProduct';
-import EditWritingProduct from './EditWritingProduct';
-
-import Grants from './Grants';
+import AllContacts from './AllContacts';
+import AllProducts from './AllProducts';
 import AllGrants from './AllGrants';
-import CreateGrant from './CreateGrant';
-import EditGrant from './EditGrant';
+
 
 
 export {
@@ -30,15 +23,9 @@ export {
     CreateProspect,
     EditProspect,
 
-    Tasks,
+    AllContacts,
     
-    WritingProducts,
-    AllWritingProducts,
-    CreateWritingProduct,
-    EditWritingProduct,
+    AllProducts,
 
-    Grants,
     AllGrants,
-    CreateGrant,
-    EditGrant,
 };

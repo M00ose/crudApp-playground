@@ -12,9 +12,9 @@ import {
 
 import {
   AccountCircleOutlined,
-  CheckCircleOutlined,
-  HistoryEdu,
+  ViewList,
   PeopleAltOutlined,
+  Article,
   Handshake,
 } from '@mui/icons-material';
 
@@ -28,17 +28,9 @@ import {
   CreateProspect,
   EditProspect,
 
-  Tasks,
-
-  WritingProducts,
-  AllWritingProducts,
-  CreateWritingProduct,
-  EditWritingProduct,
-
-  Grants,
+  AllContacts,
+  AllProducts,
   AllGrants,
-  CreateGrant,
-  EditGrant,
 
  } from "pages";
 
@@ -154,28 +146,21 @@ function App() {
               show: Prospects,
               create: CreateProspect,
               edit: EditProspect,
-              icon: <PeopleAltOutlined/>,
+              icon: <ViewList />,
             },
             {
-              name: "tasks",
-              list: Tasks,
-              icon: <CheckCircleOutlined/>,
+              name: "contacts",
+              list: AllContacts,
+              icon: <PeopleAltOutlined />,
             },
             {
-              name: "writing-products",
-              options: {label: 'Writing'},
-              list: AllWritingProducts,
-              show: WritingProducts,
-              create: CreateWritingProduct,
-              edit: EditWritingProduct,
-              icon: <HistoryEdu />,
+              name: "Products",
+              list: AllProducts,
+              icon: <Article />,
             },
             {
               name: "grants",
               list: AllGrants,
-              show: Grants,
-              create: CreateGrant,
-              edit: EditGrant,
               icon: <Handshake />,
             },
             {
