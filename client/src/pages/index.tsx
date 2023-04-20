@@ -11,7 +11,7 @@ const index = () => {
           content="Donor and fundraising management without the fluff."
         />
       </Head>
-      <main className="font-sans">
+      <main className="p-2 font-sans">
         <Navbar />
         <Sidebar />
         <Footer />
