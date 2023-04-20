@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Footer, Navbar, Sidebar } from "../components";
+import { Navbar, Sidebar } from "../components";
 
 const index = () => {
   return (
@@ -14,7 +14,6 @@ const index = () => {
       <main className="p-2 font-sans">
         <Navbar />
         <Sidebar />
-        <Footer />
       </main>
     </>
   );
