@@ -38,7 +38,7 @@ const Sidebar = () => {
             onClick={() => handleClick(link.label)}
           >
             {active === link.label && (
-              <div className="identifier bg-offGrey h-3 w-1 rounded-full shadow-lg"></div>
+              <div className="bg-offGrey h-3 w-1 rounded-full shadow-lg"></div>
             )}
             <Link
               href={link.href}
